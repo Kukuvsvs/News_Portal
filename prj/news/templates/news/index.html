@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,9 @@
 </head>
     <body>
         {% for new in news  %}
-            <p>{{ new.title }}</p>
+            <p><b>{{ new.title|censor }}</b>
+                {{ new.Text|censor|truncatechars:20 }}
+            {{ new.date_pub|date:'d  M  Y' }}</p>
             <a href="{{ new.get_absolute_url }}">News url</a>
         {% endfor %}
     {% block title %}

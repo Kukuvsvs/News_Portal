@@ -1,8 +1,11 @@
 {% extends 'index.html' %}
+{% load custom_filters %}
+
+
 
 {% block title %}
-<p>{{ new.title }}:  {{ new.date_pub }}</p>
-<p>{{ new.Text }}</p>
+<p><b>{{ new.title|censor }}:</b>  {{ new.date_pub }}</p>
+<p>{{ new.Text|censor }}</p>
 
 
 {% endblock %}
